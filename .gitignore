@@ -1,0 +1,26 @@
+# Unity generated
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild*/
+[Bb]uilds*/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+Artifacts/
+
+# Visual Studio / Rider
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+
+# OS junk
+.DS_Store
+Thumbs.db
