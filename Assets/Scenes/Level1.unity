@@ -570,8 +570,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &63904701
 GameObject:
@@ -1298,8 +1298,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -60}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -40}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &184074751
 MonoBehaviour:
@@ -1491,7 +1491,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.7339, y: -89.5348}
-  m_SizeDelta: {x: 228.4926, y: 295.4729}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236609468
 MonoBehaviour:
@@ -1739,13 +1739,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3698417, y: -0, z: -0, w: 0.92909485}
-  m_LocalPosition: {x: -4.5, y: 32.6, z: -41.6}
+  m_LocalRotation: {x: 0.37055743, y: 0, z: 0, w: 0.92880964}
+  m_LocalPosition: {x: 0, y: 32.6, z: -41.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 43.412, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 43.5, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,8 +2435,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -120}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -140}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527586651
 MonoBehaviour:
@@ -3502,9 +3502,9 @@ RectTransform:
   - {fileID: 1985384925}
   m_Father: {fileID: 1623766950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 894.5, y: 582}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1789, y: 1164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &706211528
@@ -4507,8 +4507,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -180}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -240}
+  m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909554252
 MonoBehaviour:
@@ -4622,6 +4622,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  tileSize: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  minShootTime: 1.5
+  maxShootTime: 3
+  bulletSpeed: 10
 --- !u!1001 &926404978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4748,6 +4757,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  tileSize: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  minShootTime: 1.5
+  maxShootTime: 3
+  bulletSpeed: 10
 --- !u!1001 &989159536
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5193,6 +5211,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  tileSize: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  minShootTime: 1.5
+  maxShootTime: 3
+  bulletSpeed: 10
 --- !u!1001 &1127544238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6547,6 +6574,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  tileSize: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  minShootTime: 1.5
+  maxShootTime: 3
+  bulletSpeed: 10
 --- !u!1001 &1497317120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7277,6 +7313,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  tileSize: 1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  minShootTime: 1.5
+  maxShootTime: 3
+  bulletSpeed: 10
 --- !u!1001 &1724511174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8643,9 +8688,9 @@ RectTransform:
   - {fileID: 909554251}
   m_Father: {fileID: 700060579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 894.5, y: 582}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1789, y: 1164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985384926
