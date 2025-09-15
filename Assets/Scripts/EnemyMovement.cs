@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = false; // Change to false for physics collisions
+        rb.isKinematic = true;
         rb.freezeRotation = true;
 
         col = GetComponent<Collider>();
@@ -50,11 +50,9 @@ public class EnemyMovement : MonoBehaviour
     {
         if (moving)
         {
-            // Use physics-based movement instead of direct transform manipulation
-            Vector3 newPos = Vector3.MoveTowards(rb.position, targetPosition, moveSpeed * Time.deltaTime);
-            rb.MovePosition(newPos);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-            if (Vector3.Distance(rb.position, targetPosition) < 0.001f)
+            if (Vector3.Distance(transform.position, targetPosition) < 0.001f)
             {
                 moving = false;
                 SetNextTarget();
@@ -69,7 +67,7 @@ public class EnemyMovement : MonoBehaviour
             ChooseNewDirection();
         }
 
-        targetPosition = rb.position + moveDirection * tileSize;
+        targetPosition = transform.position + moveDirection * tileSize;
         moving = true;
     }
 
@@ -93,7 +91,7 @@ public class EnemyMovement : MonoBehaviour
 
     private bool IsBlocked(Vector3 dir)
     {
-        Vector3 origin = rb.position + Vector3.up * 0.5f;
+        Vector3 origin = transform.position + Vector3.up * 0.5f;
         float checkDist = tileSize + tankHalfSize;
         return Physics.Raycast(origin, dir, checkDist, obstacleMask, QueryTriggerInteraction.Collide);
     }
@@ -119,11 +117,9 @@ public class EnemyMovement : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
-            // Spawn bullet slightly ahead of firePoint
             Vector3 spawnPos = firePoint.position + transform.forward * 0.2f;
             GameObject bullet = Instantiate(bulletPrefab, spawnPos, firePoint.rotation);
 
-            // Ignore collision with this tank temporarily
             Collider bulletCol = bullet.GetComponent<Collider>();
             if (bulletCol != null)
             {
@@ -131,11 +127,10 @@ public class EnemyMovement : MonoBehaviour
                 StartCoroutine(ReenableCollision(bulletCol, col, 0.1f));
             }
 
-            // Make bullet move forward immediately
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
             if (bulletRb != null)
             {
-                bulletRb.linearVelocity = transform.forward * bulletSpeed;
+                bulletRb.velocity = transform.forward * bulletSpeed;
             }
         }
     }
@@ -149,6 +144,27 @@ public class EnemyMovement : MonoBehaviour
         }
     }
     #endregion
+
+    // ---------- NEW COLLISION TURNING ----------
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Only react if the collided object is on the obstacle layer(s)
+        if (((1 << collision.gameObject.layer) & obstacleMask) != 0)
+        {
+            TurnNinetyDegrees();
+            targetPosition = transform.position + moveDirection * tileSize;
+            moving = true;
+        }
+    }
+
+    private void TurnNinetyDegrees()
+    {
+        // pick left or right randomly
+        float angle = Random.value < 0.5f ? -90f : 90f;
+        moveDirection = Quaternion.Euler(0f, angle, 0f) * moveDirection;
+        transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
+    }
+    // -------------------------------------------
 
     private void OnDrawGizmosSelected()
     {
