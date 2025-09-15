@@ -3,6 +3,8 @@ using UnityEngine;
 public class TeleportPowerUp : MonoBehaviour
 {
     private PowerUpSpawner spawner;
+    private float lastTeleportTime = 0f;
+    private float teleportCooldown = 1f; // 1 second cooldown
 
     void Start()
     {
@@ -11,16 +13,23 @@ public class TeleportPowerUp : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // your tank should have this tag
+        if (other.CompareTag("Player") && Time.time > lastTeleportTime + teleportCooldown)
         {
-            // find another powerup to teleport to
             GameObject target = spawner.GetRandomOtherPowerUp(this.gameObject);
             if (target != null)
             {
-                other.transform.position = target.transform.position + Vector3.up * 1f; 
+                // Add random offset to avoid spawning directly on power-up
+                Vector3 randomOffset = new Vector3(
+                    Random.Range(-3f, 3f), 
+                    0f, 
+                    Random.Range(-3f, 3f)
+                );
+                Vector3 teleportPos = new Vector3(target.transform.position.x, 0f, target.transform.position.z) + randomOffset;
+                other.transform.position = teleportPos;
+                
+                lastTeleportTime = Time.time;
             }
 
-            // notify spawner
             spawner.OnPowerUpCollected(this.gameObject);
         }
     }

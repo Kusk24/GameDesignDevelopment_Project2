@@ -27,10 +27,33 @@ namespace Tanks.Complete
                 Destroy(other.gameObject);
             }
 
-            // --- Check if the shell hits the player directly ---
-            if (other.CompareTag("Tank"))
+            // --- Check if the shell hits the player or enemy directly ---
+            if (other.CompareTag("Player"))
             {
-                Destroy(other.gameObject); // Destroy player
+                PlayerMovement pm = other.GetComponent<PlayerMovement>();
+                if (pm != null && pm.shieldActive)
+                {
+                    // Shield absorbs the bullet, just destroy the shell
+                    // Play explosion effects but don't harm player
+                    if (m_ExplosionParticles != null)
+                    {
+                        m_ExplosionParticles.transform.parent = null;
+                        m_ExplosionParticles.Play();
+                        ParticleSystem.MainModule mainModule = m_ExplosionParticles.main;
+                        Destroy(m_ExplosionParticles.gameObject, mainModule.duration);
+                    }
+                    
+                    if (m_ExplosionAudio != null)
+                    {
+                        m_ExplosionAudio.Play();
+                    }
+                    
+                    Destroy(gameObject);
+                    return;
+                }
+
+                // No shield -> destroy player
+                Destroy(other.gameObject);
             }
 
             // --- Optional: handle enemy tanks ---

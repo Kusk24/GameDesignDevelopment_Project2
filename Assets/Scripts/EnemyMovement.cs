@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
+        rb.isKinematic = false; // Change to false for physics collisions
         rb.freezeRotation = true;
 
         col = GetComponent<Collider>();
@@ -50,9 +50,11 @@ public class EnemyMovement : MonoBehaviour
     {
         if (moving)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            // Use physics-based movement instead of direct transform manipulation
+            Vector3 newPos = Vector3.MoveTowards(rb.position, targetPosition, moveSpeed * Time.deltaTime);
+            rb.MovePosition(newPos);
 
-            if (Vector3.Distance(transform.position, targetPosition) < 0.001f)
+            if (Vector3.Distance(rb.position, targetPosition) < 0.001f)
             {
                 moving = false;
                 SetNextTarget();
@@ -67,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
             ChooseNewDirection();
         }
 
-        targetPosition = transform.position + moveDirection * tileSize;
+        targetPosition = rb.position + moveDirection * tileSize;
         moving = true;
     }
 
@@ -91,7 +93,7 @@ public class EnemyMovement : MonoBehaviour
 
     private bool IsBlocked(Vector3 dir)
     {
-        Vector3 origin = transform.position + Vector3.up * 0.5f;
+        Vector3 origin = rb.position + Vector3.up * 0.5f;
         float checkDist = tileSize + tankHalfSize;
         return Physics.Raycast(origin, dir, checkDist, obstacleMask, QueryTriggerInteraction.Collide);
     }
