@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class EnemyMovement : MonoBehaviour
@@ -23,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
     private bool moving = false;
     private float tankHalfSize = 0.5f;
     private float shootTimer;
+
+    public static event Action OnEnemyDeath;
 
     void Awake()
     {
@@ -79,7 +82,7 @@ public class EnemyMovement : MonoBehaviour
 
         for (int i = 0; i < 10; i++)
         {
-            Vector3 dir = dirs[Random.Range(0, dirs.Length)];
+            Vector3 dir = dirs[UnityEngine.Random.Range(0, dirs.Length)];
             if (!IsBlocked(dir))
             {
                 moveDirection = dir;
@@ -112,7 +115,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void ResetShootTimer()
     {
-        shootTimer = Random.Range(minShootTime, maxShootTime);
+        shootTimer = UnityEngine.Random.Range(minShootTime, maxShootTime);
     }
 
     private void Shoot()
@@ -159,5 +162,11 @@ public class EnemyMovement : MonoBehaviour
             float checkDist = tileSize + tankHalfSize;
             Gizmos.DrawLine(origin, origin + moveDirection * checkDist);
         }
+    }
+
+    void OnDestroy()
+    {
+        // Notify spawn manager when this enemy dies
+        OnEnemyDeath?.Invoke();
     }
 }
