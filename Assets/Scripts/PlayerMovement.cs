@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isTripleShot = false;
     public bool shieldActive = false;
     public GameObject shieldVisual;
+    private float shieldEndTime = 0f;
 
     private void Awake()
     {
@@ -115,14 +116,25 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator ActivateShield(float duration)
     {
         shieldActive = true;
+        shieldEndTime = Time.time + duration;
+        
         if (shieldVisual != null)
             shieldVisual.SetActive(true);
 
         yield return new WaitForSeconds(duration);
 
         shieldActive = false;
+        shieldEndTime = 0f;
+        
         if (shieldVisual != null)
             shieldVisual.SetActive(false);
+    }
+
+    public float GetShieldRemainingTime()
+    {
+        if (shieldActive)
+            return Mathf.Max(0f, shieldEndTime - Time.time);
+        return 0f;
     }
 
     private void FixedUpdate()

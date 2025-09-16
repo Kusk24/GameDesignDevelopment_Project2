@@ -133,7 +133,7 @@ public class EnemyMovement : MonoBehaviour
             Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
             if (bulletRb != null)
             {
-                bulletRb.velocity = transform.forward * bulletSpeed;
+                bulletRb.linearVelocity = transform.forward * bulletSpeed;
             }
         }
     }
@@ -163,7 +163,7 @@ public class EnemyMovement : MonoBehaviour
     private void TurnNinetyDegrees()
     {
         // pick left or right randomly
-        float angle = Random.value < 0.5f ? -90f : 90f;
+        float angle = UnityEngine.Random.value < 0.5f ? -90f : 90f;
         moveDirection = Quaternion.Euler(0f, angle, 0f) * moveDirection;
         transform.rotation = Quaternion.LookRotation(moveDirection, Vector3.up);
     }
