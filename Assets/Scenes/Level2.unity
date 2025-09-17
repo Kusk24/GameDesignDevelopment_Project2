@@ -223,10 +223,10 @@ MonoBehaviour:
   enableEnemySpawning: 1
   enemyPrefab: {fileID: 7726191769912874490, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
   totalWaves: 5
-  minX: -32
-  maxX: 32
-  minZ: -30
-  maxZ: 26
+  minX: -36
+  maxX: 35
+  minZ: -34
+  maxZ: 30
   spawnY: 0.5
   obstacleMask:
     serializedVersion: 2
