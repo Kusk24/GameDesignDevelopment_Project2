@@ -1,3 +1,4 @@
+// PowerUpSpawner.cs - Fixed version with proper error handling
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -16,7 +17,7 @@ public class PowerUpSpawner : MonoBehaviour
 
     [Header("Grid")]
     public float cellSize = 5f;               // 5x5 squares
-    public float cellPadding = 0.4f;          // shrinks occupancy check so we don’t touch walls
+    public float cellPadding = 1.0f;          // increased padding to avoid walls
     public bool jitterInsideCell = false;     // if true, randomize within the 5x5 cell a bit
     public float jitterRange = 1.0f;          // +/- range for jitter inside cell (if enabled)
 
@@ -33,6 +34,13 @@ public class PowerUpSpawner : MonoBehaviour
 
     void Start()
     {
+        // Validate prefab list
+        if (!ValidatePrefabList())
+        {
+            Debug.LogError("PowerUpSpawner: Invalid prefab configuration. Cannot start.");
+            return;
+        }
+
         teleportSpawned = 0;
         totalSpawned = 0;
 
@@ -40,16 +48,48 @@ public class PowerUpSpawner : MonoBehaviour
             SpawnPowerUp();
     }
 
+    bool ValidatePrefabList()
+    {
+        if (powerUpPrefabs == null)
+        {
+            Debug.LogError("PowerUpSpawner: powerUpPrefabs list is null!");
+            return false;
+        }
+
+        if (powerUpPrefabs.Count == 0)
+        {
+            Debug.LogError("PowerUpSpawner: powerUpPrefabs list is empty!");
+            return false;
+        }
+
+        // Check for null prefabs
+        for (int i = 0; i < powerUpPrefabs.Count; i++)
+        {
+            if (powerUpPrefabs[i] == null)
+            {
+                Debug.LogError($"PowerUpSpawner: Prefab at index {i} is null!");
+                return false;
+            }
+        }
+
+        if (powerUpPrefabs.Count < 2)
+        {
+            Debug.LogWarning("PowerUpSpawner: Only one prefab available. Will only spawn teleports.");
+        }
+
+        return true;
+    }
+
     void SpawnPowerUp()
     {
-        if (powerUpPrefabs == null || powerUpPrefabs.Count == 0) return;
+        if (!ValidatePrefabList()) return;
 
         GameObject prefab;
 
         // First "activeCount" spawns: enforce 2 teleports + the rest random others
         if (totalSpawned < activeCount)
         {
-            if (teleportSpawned < 2 && powerUpPrefabs.Count > 0)
+            if (teleportSpawned < 2)
             {
                 prefab = powerUpPrefabs[0];     // teleport at index 0
                 teleportSpawned++;
@@ -69,12 +109,17 @@ public class PowerUpSpawner : MonoBehaviour
                 if (activePU != null && activePU.GetComponent<TeleportPowerUp>() != null)
                     currentTeleports++;
             }
-            int currentOthers = Mathf.Max(0, activePowerUps.Count - currentTeleports);
 
             if (currentTeleports < 2)
                 prefab = powerUpPrefabs[0];
             else
                 prefab = PickRandomOther();
+        }
+
+        if (prefab == null)
+        {
+            Debug.LogError("PowerUpSpawner: Selected prefab is null!");
+            return;
         }
 
         // Find a free cell center on the grid
@@ -100,15 +145,45 @@ public class PowerUpSpawner : MonoBehaviour
         // Track cell so we can free it later
         puToCell[spawnedPU] = cell;
         occupiedCells.Add(cell);
+
+        Debug.Log($"Spawned {prefab.name} at {spawnPos}");
     }
 
     GameObject PickRandomOther()
     {
-        if (powerUpPrefabs.Count <= 1)
-            return powerUpPrefabs[0]; // fallback
+        // Better error checking
+        if (powerUpPrefabs == null)
+        {
+            Debug.LogError("PowerUpSpawner: powerUpPrefabs list is null in PickRandomOther!");
+            return null;
+        }
 
-        int idx = Random.Range(1, powerUpPrefabs.Count);
-        return powerUpPrefabs[idx];
+        if (powerUpPrefabs.Count <= 1)
+        {
+            Debug.LogWarning("PowerUpSpawner: Not enough prefabs for random selection. Returning teleport.");
+            return powerUpPrefabs.Count > 0 ? powerUpPrefabs[0] : null;
+        }
+
+        // Make sure we have valid indices
+        int attempts = 0;
+        int maxAttempts = 10;
+        
+        while (attempts < maxAttempts)
+        {
+            int idx = Random.Range(1, powerUpPrefabs.Count);
+            
+            if (idx >= 0 && idx < powerUpPrefabs.Count && powerUpPrefabs[idx] != null)
+            {
+                return powerUpPrefabs[idx];
+            }
+            
+            attempts++;
+            Debug.LogWarning($"PowerUpSpawner: Invalid prefab at index {idx}, trying again... (attempt {attempts})");
+        }
+
+        // Fallback - return teleport if we can't find a valid other prefab
+        Debug.LogError("PowerUpSpawner: Could not find valid non-teleport prefab after multiple attempts!");
+        return powerUpPrefabs[0];
     }
 
     // Returns a random FREE cell center, avoiding blocked layers and already-used cells
@@ -201,13 +276,41 @@ public class PowerUpSpawner : MonoBehaviour
         SpawnPowerUp();
     }
 
-    public GameObject GetRandomOtherPowerUp(GameObject exclude)
+    // Get a random teleport power-up that's not the current one
+    public GameObject GetRandomTeleportTarget(GameObject exclude)
     {
-        List<GameObject> candidates = new List<GameObject>(activePowerUps);
-        candidates.RemoveAll(x => x == null || x == exclude);
-        if (candidates.Count > 0)
-            return candidates[Random.Range(0, candidates.Count)];
+        List<GameObject> teleports = new List<GameObject>();
+        
+        foreach (var pu in activePowerUps)
+        {
+            if (pu != null && pu != exclude && pu.GetComponent<TeleportPowerUp>() != null)
+            {
+                teleports.Add(pu);
+            }
+        }
+        
+        if (teleports.Count > 0)
+            return teleports[Random.Range(0, teleports.Count)];
+        
         return null;
+    }
+
+    // Special method for teleport consumption - removes both teleports
+    public void OnTeleportUsed(GameObject sourceTeleport, GameObject targetTeleport)
+    {
+        if (sourceTeleport == null || targetTeleport == null)
+        {
+            Debug.LogError("PowerUpSpawner: Null teleport passed to OnTeleportUsed!");
+            return;
+        }
+
+        // Remove source teleport
+        OnPowerUpCollected(sourceTeleport);
+        
+        // Remove target teleport 
+        OnPowerUpCollected(targetTeleport);
+        
+        Debug.Log("Both teleports consumed - spawning replacements");
     }
 
     void OnDrawGizmosSelected()
