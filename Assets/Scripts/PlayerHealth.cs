@@ -20,14 +20,13 @@ public class PlayerHealth : MonoBehaviour
         dead = false;
         playerMovement = GetComponent<PlayerMovement>();
         UpdateUI();
-        
+
         // Start checking shield status
         StartCoroutine(UpdateShieldUI());
     }
 
     /// <summary>
     /// Call this when the player is hit by a bullet.
-    /// </summary>
     public void TakeDamage(int amount = 1)
     {
         if (dead) return;
@@ -38,7 +37,10 @@ public class PlayerHealth : MonoBehaviour
         if (currentLives <= 0)
         {
             Die();
+            return;
         }
+
+        // else: you might have invuln frames/respawn logic here
     }
 
     /// <summary>
@@ -51,26 +53,29 @@ public class PlayerHealth : MonoBehaviour
         UpdateUI();
     }
 
+    // in PlayerHealth.cs
     private void Die()
     {
+        if (dead) return;
         dead = true;
 
-        // Stop ALL engine / looping sounds on the player
-        foreach (AudioSource src in GetComponentsInChildren<AudioSource>())
-        {
+        // Stop any engine / looping sounds on the player
+        foreach (var src in GetComponentsInChildren<AudioSource>())
             src.Stop();
-        }
 
-        // Optional: play a death SFX once at the player position
+        // Death SFX (one-shot at player position)
         if (deathSfx)
             AudioSource.PlayClipAtPoint(deathSfx, transform.position);
 
-        // Optional: spawn explosion VFX
+        // Death VFX
         if (explosionPrefab)
             Instantiate(explosionPrefab, transform.position, transform.rotation);
 
-        // Here you can trigger Game Over UI or respawn logic
-        // For now, just destroy the player tank
+        // *** Hand off to central Game Over ***
+        if (GameManager.Instance != null)
+            GameManager.Instance.TriggerGameOver("Lives depleted");
+
+        // Remove the player object from the scene
         Destroy(gameObject);
     }
 
