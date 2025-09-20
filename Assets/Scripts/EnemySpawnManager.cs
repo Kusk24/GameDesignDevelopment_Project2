@@ -145,9 +145,8 @@ public class EnemySpawnManager : MonoBehaviour
         
         Debug.Log("Level1 Complete! Loading Level2...");
         
-        // Wait a bit then load Level2
-        yield return new WaitForSeconds(levelCompleteDelay);
-        LoadNextLevel();
+        // Trigger loading screen + fade at the same time
+        FindFirstObjectByType<SceneTransition>().LoadSceneWithTransition(nextLevelScene);
     }
 
     // Original wave spawning system for Level2
@@ -209,13 +208,14 @@ public class EnemySpawnManager : MonoBehaviour
         
         Debug.Log("All waves completed!");
         
-        // Level2 complete - load next scene or return to menu
-        yield return new WaitForSeconds(levelCompleteDelay);
-        LoadNextLevel();
+        // Trigger loading screen + fade at the same time
+        FindFirstObjectByType<SceneTransition>().LoadSceneWithTransition(nextLevelScene);
     }
 
     private void LoadNextLevel()
     {
+        // This method is no longer needed since we call transition directly
+        // Keep it for backwards compatibility if needed elsewhere
         if (Application.CanStreamedLevelBeLoaded(nextLevelScene))
         {
             Debug.Log($"Loading {nextLevelScene}...");
