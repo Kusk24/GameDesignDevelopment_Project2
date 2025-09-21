@@ -7,16 +7,16 @@ public class EnemySpawnManager : MonoBehaviour
 {
     [Header("Level Settings")]
     public bool enableEnemySpawning = true;  // Set to false for Level1, true for Level2
-    
+
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;
     public int totalWaves = 5;
 
     [Header("Spawn Area")]
     public float minX = -31f;  // Reduced from -30 to stay inside brick walls
-    public float maxX =  30f;  // Reduced from 31 to stay inside brick walls
+    public float maxX = 30f;  // Reduced from 31 to stay inside brick walls
     public float minZ = -29f;  // Reduced from -28 to stay inside brick walls
-    public float maxZ =  25f;  // Reduced from 24 to stay inside brick walls
+    public float maxZ = 25f;  // Reduced from 24 to stay inside brick walls
     public float spawnY = 0.5f;
 
     [Header("Collision Check")]
@@ -27,7 +27,7 @@ public class EnemySpawnManager : MonoBehaviour
     [Header("Boundary Enforcement")]
     public bool enableBoundaryEnforcement = true;
     public float boundaryCheckInterval = 0.1f;  // How often to check boundaries (seconds)
-    
+
     [Header("UI")]
     public TMP_Text waveCountText;   // e.g. "Wave 1/5 - Enemies: 6 remaining"
     public TMP_Text winText;         // "YOU WIN!"
@@ -46,13 +46,13 @@ public class EnemySpawnManager : MonoBehaviour
     void Start()
     {
         if (winText != null) winText.gameObject.SetActive(false);
-        
+
         // Start boundary enforcement if enabled
         if (enableBoundaryEnforcement)
         {
             boundaryCheckCoroutine = StartCoroutine(EnforceBoundariesCoroutine());
         }
-        
+
         if (enableEnemySpawning)
         {
             // Level2: Use wave spawning system
@@ -67,7 +67,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (!enableEnemySpawning) 
+        if (!enableEnemySpawning)
         {
             // Level1: Show count of manually placed enemies
             int count = CurrentEnemyCount();
@@ -100,7 +100,7 @@ public class EnemySpawnManager : MonoBehaviour
                     if (enemy != null)
                     {
                         Vector3 pos = enemy.transform.position;
-                        
+
                         // Check if enemy is outside boundaries
                         if (pos.x < minX || pos.x > maxX || pos.z < minZ || pos.z > maxZ)
                         {
@@ -123,7 +123,7 @@ public class EnemySpawnManager : MonoBehaviour
                     }
                 }
             }
-            
+
             yield return new WaitForSeconds(boundaryCheckInterval);
         }
     }
@@ -133,18 +133,33 @@ public class EnemySpawnManager : MonoBehaviour
     {
         // Wait until all manually placed enemies are defeated
         yield return new WaitUntil(() => CurrentEnemyCount() == 0);
-        
+
         // All enemies defeated - complete Level1
         gameWon = true;
-        if (winText != null) 
+        
+        // Trigger Victory Panel
+        // GameUIManager uiManager = FindFirstObjectByType<GameUIManager>();
+        // if (uiManager != null)
+        // {
+        //     uiManager.ShowVictory();
+        // }
+        
+        if (winText != null)
         {
             winText.gameObject.SetActive(true);
             winText.text = "Level 1 Complete!\nLoading Level 2...";
+
+            GameObject particles = GameObject.Find("VictoryParticles");
+            if (particles != null)
+            {
+                var ps = particles.GetComponent<ParticleSystem>();
+                ps.Play();
+            }
         }
         if (waveCountText != null) waveCountText.text = "All Enemies Defeated!";
-        
+
         Debug.Log("Level1 Complete! Loading Level2...");
-        
+
         // Trigger loading screen + fade at the same time
         FindFirstObjectByType<SceneTransition>().LoadSceneWithTransition(nextLevelScene);
     }
@@ -170,7 +185,7 @@ public class EnemySpawnManager : MonoBehaviour
                 if (spawnPos != Vector3.zero)
                 {
                     GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-                    
+
                     // Immediate validation after spawning
                     if (IsPositionOutsideBounds(spawnPos))
                     {
@@ -178,19 +193,19 @@ public class EnemySpawnManager : MonoBehaviour
                         Destroy(enemy);
                         continue;
                     }
-                    
+
                     // Add boundary constraint component to enemy if it doesn't exist
                     if (enemy.GetComponent<EnemyBoundaryConstraint>() == null)
                     {
                         var constraint = enemy.AddComponent<EnemyBoundaryConstraint>();
                         constraint.Initialize(minX, maxX, minZ, maxZ);
                     }
-                    
-                    Debug.Log($"Enemy {i+1} spawned successfully at {spawnPos}");
+
+                    Debug.Log($"Enemy {i + 1} spawned successfully at {spawnPos}");
                 }
                 else
                 {
-                    Debug.LogWarning($"Failed to spawn enemy {i+1} - no valid position found");
+                    Debug.LogWarning($"Failed to spawn enemy {i + 1} - no valid position found");
                 }
             }
 
@@ -199,15 +214,23 @@ public class EnemySpawnManager : MonoBehaviour
         }
 
         gameWon = true;
-        if (winText != null) 
+        
+        // Trigger Victory Panel
+        VictoryUIManager uiManager = FindFirstObjectByType<VictoryUIManager>();
+        if (uiManager != null)
+        {
+            uiManager.ShowVictory();
+        }
+        
+        if (winText != null)
         {
             winText.gameObject.SetActive(true);
             winText.text = "All Waves Complete!\nYou Win!";
         }
         if (waveCountText != null) waveCountText.text = "Victory!";
-        
+
         Debug.Log("All waves completed!");
-        
+
         // Trigger loading screen + fade at the same time
         FindFirstObjectByType<SceneTransition>().LoadSceneWithTransition(nextLevelScene);
     }
@@ -251,7 +274,7 @@ public class EnemySpawnManager : MonoBehaviour
                 }
             }
         }
-        
+
         Debug.LogWarning($"Failed to find valid spawn position after {maxSpawnAttempts} attempts!");
         return Vector3.zero;
     }
@@ -268,7 +291,7 @@ public class EnemySpawnManager : MonoBehaviour
         var killCenter = new Vector3((minX + maxX) * 0.5f, spawnY, (minZ + maxZ) * 0.5f);
         var killSize = new Vector3(maxX - minX, 0.1f, maxZ - minZ);
         Gizmos.DrawWireCube(killCenter, killSize);
-        
+
         // Draw safe spawn area (with buffer) - this should be well inside the brick walls
         Gizmos.color = Color.green;
         float bufferX = checkRadius * 2f;
@@ -276,7 +299,7 @@ public class EnemySpawnManager : MonoBehaviour
         var safeSize = new Vector3((maxX - bufferX) - (minX + bufferX), 0.1f, (maxZ - bufferZ) - (minZ + bufferZ));
         var safeCenter = new Vector3((minX + bufferX + maxX - bufferX) * 0.5f, spawnY, (minZ + bufferZ + maxZ - bufferZ) * 0.5f);
         Gizmos.DrawWireCube(safeCenter, safeSize);
-        
+
         // Draw actual brick wall boundaries for reference (approximate)
         Gizmos.color = Color.yellow;
         var brickWallSize = new Vector3(50f, 0.1f, 50f); // Approximate brick wall area
@@ -315,7 +338,7 @@ public class EnemyBoundaryConstraint : MonoBehaviour
 
         Vector3 pos = transform.position;
         bool wasConstrained = false;
-        
+
         // Constrain position to boundaries
         if (pos.x < minX)
         {
