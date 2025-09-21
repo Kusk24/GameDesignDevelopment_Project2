@@ -225,14 +225,13 @@ public class EnemySpawnManager : MonoBehaviour
         if (winText != null)
         {
             winText.gameObject.SetActive(true);
-            winText.text = "All Waves Complete!\nYou Win!";
+            winText.text = "Congratulations!!!\nAll Waves Complete!\nYou Win!";
         }
         if (waveCountText != null) waveCountText.text = "Victory!";
 
         Debug.Log("All waves completed!");
 
         // Trigger loading screen + fade at the same time
-        FindFirstObjectByType<SceneTransition>().LoadSceneWithTransition(nextLevelScene);
     }
 
     private void LoadNextLevel()

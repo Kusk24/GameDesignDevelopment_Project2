@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 2016348764}
   resumeButton: {fileID: 1286821593}
+  titleText: {fileID: 0}
   mainMenuScene: Menu
 --- !u!114 &78552924
 MonoBehaviour:
@@ -1679,7 +1680,8 @@ Transform:
   m_LocalPosition: {x: 0.1, y: 48.6, z: 30.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1993922384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 60.988, y: -180.879, z: -0.342}
 --- !u!114 &373890848
@@ -1983,11 +1985,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1940020413}
-  - {fileID: 78552927}
   - {fileID: 1367308480}
   - {fileID: 778704072}
   - {fileID: 1378563013}
+  - {fileID: 1934095901}
+  - {fileID: 78552927}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3158,6 +3160,8 @@ MonoBehaviour:
   moveSpeed: 5
   turnSpeed: 180
   engineAudio: {fileID: 667587708}
+  shootingSfx: {fileID: 0}
+  shootingVolume: 0.4
   shellPrefab: {fileID: 192454, guid: 008ecb1b70bec724fa2cd34255b0d8f8, type: 3}
   shellSpawnPoint: {fileID: 2044049951}
   shellSpeed: 20
@@ -6987,8 +6991,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1993922384}
+  m_Children: []
   m_Father: {fileID: 408515008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -9282,6 +9285,59 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d65002cb2df73b749a881132d5483f89, type: 3}
+--- !u!1 &1934095900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934095901}
+  - component: {fileID: 1934095902}
+  m_Layer: 5
+  m_Name: VictoryMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1934095901
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934095900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1940020413}
+  m_Father: {fileID: 408515008}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1789, y: 1164}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1934095902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934095900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1b9b6353e6240569b5628043870aa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryPanel: {fileID: 1940020412}
+  victoryText: {fileID: 1378563011}
+  victoryParticles: {fileID: 1993922383}
+  mainMenuScene: Menu
 --- !u!1 &1940020412
 GameObject:
   m_ObjectHideFlags: 0
@@ -9294,7 +9350,6 @@ GameObject:
   - component: {fileID: 1940020416}
   - component: {fileID: 1940020415}
   - component: {fileID: 1940020414}
-  - component: {fileID: 1940020417}
   m_Layer: 5
   m_Name: VictoryPanel
   m_TagString: Untagged
@@ -9317,7 +9372,7 @@ RectTransform:
   - {fileID: 1571020003}
   - {fileID: 821713182}
   - {fileID: 1141720159}
-  m_Father: {fileID: 408515008}
+  m_Father: {fileID: 1934095901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9387,20 +9442,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1940020417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940020412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1b9b6353e6240569b5628043870aa7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  victoryPanel: {fileID: 1940020412}
-  mainMenuScene: Menu
 --- !u!1001 &1953809487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9530,13 +9571,14 @@ GameObject:
   - component: {fileID: 1993922384}
   - component: {fileID: 1993922383}
   - component: {fileID: 1993922382}
+  - component: {fileID: 1993922385}
   m_Layer: 9
   m_Name: Victory Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1993922382
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -14345,13 +14387,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993922381}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1611.5, y: -526.8, z: -4.1}
+  m_LocalRotation: {x: 0.0013223657, y: 0.8616645, z: -0.5074512, w: -0.0050969054}
+  m_LocalPosition: {x: -8.449013, y: 3.2555923, z: 57.406845}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1378563013}
+  m_Father: {fileID: 373890847}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1993922385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993922381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb46a0843f5554e628345ea07ff67493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 373890846}
+  distance: 5
 --- !u!1001 &2006867243
 PrefabInstance:
   m_ObjectHideFlags: 0
