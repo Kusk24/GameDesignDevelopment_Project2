@@ -4336,6 +4336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1985384924}
   resumeButton: {fileID: 62553636}
+  titleText: {fileID: 0}
   mainMenuScene: Menu
 --- !u!114 &700060576
 MonoBehaviour:
@@ -8973,11 +8974,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 700060579}
   - {fileID: 933476281}
   - {fileID: 77027782}
   - {fileID: 80672926}
   - {fileID: 1191110877}
+  - {fileID: 700060579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

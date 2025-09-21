@@ -81,8 +81,14 @@ public class PlayerHealth : MonoBehaviour
         if (explosionPrefab)
             Instantiate(explosionPrefab, transform.position, transform.rotation);
 
-        // Here you can trigger Game Over UI or respawn logic
-        // For now, just destroy the player tank
+        // Trigger Game Over menu instead of just destroying
+        PauseMenu pauseMenu = FindFirstObjectByType<PauseMenu>();
+        if (pauseMenu != null)
+        {
+            pauseMenu.GameOver();
+        }
+
+        // Destroy the player tank
         Destroy(gameObject);
     }
 
