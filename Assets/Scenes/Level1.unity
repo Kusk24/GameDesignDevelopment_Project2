@@ -403,6 +403,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2181,6 +2189,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2651,6 +2667,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3279,6 +3303,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3837,6 +3869,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4741,6 +4781,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5070,6 +5118,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6037,6 +6093,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -6837,6 +6901,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7054,6 +7126,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8438,6 +8518,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8722,6 +8810,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8897,6 +8993,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -8966,6 +9070,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9877,6 +9989,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -10648,6 +10768,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -10823,6 +10951,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11099,6 +11235,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11306,6 +11450,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11375,6 +11527,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11668,6 +11828,8 @@ MonoBehaviour:
   moveSpeed: 5
   turnSpeed: 180
   engineAudio: {fileID: 2142426501}
+  shootingSfx: {fileID: 0}
+  shootingVolume: 0.4
   shellPrefab: {fileID: 192454, guid: 008ecb1b70bec724fa2cd34255b0d8f8, type: 3}
   shellSpawnPoint: {fileID: 1150908887}
   shellSpeed: 20
@@ -11702,6 +11864,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+    - target: {fileID: 62256055890531999, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
+      propertyPath: deathSoundVolume
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1220589813698854013, guid: 057f88f781e5d4bdbbc54c89898051c0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

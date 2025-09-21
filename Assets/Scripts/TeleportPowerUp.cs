@@ -6,6 +6,7 @@ public class TeleportPowerUp : MonoBehaviour
     private PowerUpSpawner spawner;
     private float lastTeleportTime = 0f;
     private float teleportCooldown = 1f;
+    public AudioClip pickupSfx; // Power-up collection sound (assign same clip to all power-ups)
 
     void Start()
     {
@@ -20,6 +21,19 @@ public class TeleportPowerUp : MonoBehaviour
     {
         if (other.CompareTag("Player") && Time.time > lastTeleportTime + teleportCooldown)
         {
+            // Play uniform pickup sound
+            if (pickupSfx != null)
+            {
+                GameObject tempAudio = new GameObject("PowerUpPickupSFX");
+                AudioSource src = tempAudio.AddComponent<AudioSource>();
+                src.clip = pickupSfx;
+                src.volume = 1.0f;          // Uniform volume
+                src.spatialBlend = 0f;      // 2D sound
+                src.pitch = 1.0f;          // Uniform pitch - no variation
+                src.Play();
+                Destroy(tempAudio, pickupSfx.length + 0.1f);
+            }
+
             if (spawner == null)
             {
                 Debug.LogError("TeleportPowerUp: PowerUpSpawner is null!");

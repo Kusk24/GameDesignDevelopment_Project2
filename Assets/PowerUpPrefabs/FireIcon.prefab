@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+  pickupSfx: {fileID: 8300000, guid: 9c3f923d9d0e6ac45b94846fce0e3420, type: 3}
 --- !u!65 &6314377198634038385
 BoxCollider:
   m_ObjectHideFlags: 0

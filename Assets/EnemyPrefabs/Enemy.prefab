@@ -1234,6 +1234,8 @@ MonoBehaviour:
   minShootTime: 1.5
   maxShootTime: 3
   bulletSpeed: 10
+  enemyShootSfx: {fileID: 0}
+  enemyShootVolume: 0.2
 --- !u!114 &62256055890531999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,7 +1249,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 0}
-  deathSfx: {fileID: 0}
+  deathSfx: {fileID: 8300000, guid: 0ed3cbfef00a8474b8f0f29b7024e761, type: 3}
+  deathSoundVolume: 2.5
+  maxDistance: 500
+  use3DSound: 0
 --- !u!1 &7739244766867837462
 GameObject:
   m_ObjectHideFlags: 0

@@ -95,9 +95,24 @@ namespace Tanks.Complete
                 Destroy(m_ExplosionParticles.gameObject, mainModule.duration);
             }
 
+            // EXPLOSION AUDIO - Reduced volume for new background music
             if (m_ExplosionAudio != null)
             {
-                m_ExplosionAudio.Play();
+                // Create temporary audio source for better control
+                GameObject tempAudio = new GameObject("ShellExplosionSFX");
+                tempAudio.transform.position = transform.position;
+                AudioSource src = tempAudio.AddComponent<AudioSource>();
+                
+                src.clip = m_ExplosionAudio.clip;
+                src.volume = 1.0f;                          // Reduced from 2.0f to 1.0f (50% reduction)
+                src.spatialBlend = 0.1f;                    // Almost 2D, slight spatial
+                src.minDistance = 30f;                      // Close before falloff
+                src.maxDistance = 150f;                     // Long range
+                src.rolloffMode = AudioRolloffMode.Linear;
+                src.pitch = Random.Range(0.95f, 1.05f);    // Slight variation
+                
+                src.Play();
+                Destroy(tempAudio, src.clip.length + 0.2f);
             }
         }
 

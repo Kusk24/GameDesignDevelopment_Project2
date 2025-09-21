@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Audio")]
     public AudioSource engineAudio;  // Drag your EngineIdle AudioSource here in the Inspector
+    public AudioClip shootingSfx;    // Shooting sound effect
+    [Range(0.1f, 2.0f)]
+    public float shootingVolume = 0.4f;  // Reduced from 0.8f - much quieter
 
     [Header("Shooting")]
     public GameObject shellPrefab;        // CompleteShell prefab
@@ -25,6 +28,14 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
+        // FIX ENGINE AUDIO - Make it quieter and clear POV sound
+        if (engineAudio != null)
+        {
+            engineAudio.spatialBlend = 0f;      // Fully 2D - always hear clearly
+            engineAudio.volume = 0.3f;          // Reduced from 0.7f - much quieter
+            engineAudio.loop = true;            // Should loop
+        }
     }
 
     private void Update()
@@ -75,6 +86,22 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 spawnPos = position + rotation * Vector3.forward * 1.5f;
         GameObject shell = Instantiate(shellPrefab, spawnPos, rotation);
+
+        // Play shooting sound - much quieter so explosions can be heard
+        if (shootingSfx != null)
+        {
+            GameObject tempAudio = new GameObject("ShootingSFX");
+            tempAudio.transform.position = transform.position;
+            AudioSource src = tempAudio.AddComponent<AudioSource>();
+            
+            src.clip = shootingSfx;
+            src.volume = shootingVolume;            // Now 0.4f - much quieter
+            src.spatialBlend = 0f;                  // 2D sound - always clear but not overpowering
+            src.pitch = Random.Range(0.95f, 1.05f); // Slight variation
+            
+            src.Play();
+            Destroy(tempAudio, shootingSfx.length + 0.1f);
+        }
 
         Collider shellCol = shell.GetComponent<Collider>();
         Collider[] tankCols = GetComponentsInChildren<Collider>();

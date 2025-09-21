@@ -61,9 +61,21 @@ public class PlayerHealth : MonoBehaviour
             src.Stop();
         }
 
-        // Optional: play a death SFX once at the player position
+        // FIXED PLAYER DEATH AUDIO - Reduced volume for new background music
         if (deathSfx)
-            AudioSource.PlayClipAtPoint(deathSfx, transform.position);
+        {
+            GameObject tempAudio = new GameObject("PlayerDeathSFX");
+            tempAudio.transform.position = transform.position;
+            AudioSource src = tempAudio.AddComponent<AudioSource>();
+            
+            src.clip = deathSfx;
+            src.volume = 1.0f;                          // Reduced from 2.0f to 1.0f (50% reduction)
+            src.spatialBlend = 0f;                      // Fully 2D - always clear
+            src.pitch = Random.Range(0.9f, 1.1f);
+            
+            src.Play();
+            Destroy(tempAudio, deathSfx.length + 0.2f);
+        }
 
         // Optional: spawn explosion VFX
         if (explosionPrefab)

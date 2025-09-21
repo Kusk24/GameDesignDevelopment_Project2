@@ -16,6 +16,9 @@ public class EnemyMovement : MonoBehaviour
     public float minShootTime = 1.5f;     // min seconds between shots
     public float maxShootTime = 3f;       // max seconds between shots
     public float bulletSpeed = 10f;       // bullet travel speed
+    public AudioClip enemyShootSfx;       // Enemy shooting sound
+    [Range(0.1f, 1.0f)]
+    public float enemyShootVolume = 0.2f; // Very quiet enemy shooting
 
     private Rigidbody rb;
     private Collider col;
@@ -122,6 +125,22 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector3 spawnPos = firePoint.position + transform.forward * 0.2f;
             GameObject bullet = Instantiate(bulletPrefab, spawnPos, firePoint.rotation);
+
+            // Play very quiet enemy shooting sound
+            if (enemyShootSfx != null)
+            {
+                GameObject tempAudio = new GameObject("EnemyShootSFX");
+                tempAudio.transform.position = transform.position;
+                AudioSource src = tempAudio.AddComponent<AudioSource>();
+                
+                src.clip = enemyShootSfx;
+                src.volume = enemyShootVolume;          // Very quiet (0.2f)
+                src.spatialBlend = 0.3f;                // Slightly spatial but mostly 2D
+                src.pitch = UnityEngine.Random.Range(0.9f, 1.1f);  // Pitch variation
+                
+                src.Play();
+                Destroy(tempAudio, enemyShootSfx.length + 0.1f);
+            }
 
             Collider bulletCol = bullet.GetComponent<Collider>();
             if (bulletCol != null)
