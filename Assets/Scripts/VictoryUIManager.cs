@@ -49,6 +49,7 @@ public class VictoryUIManager : MonoBehaviour
         // Play victory particles
         if (victoryParticles != null)
         {
+            victoryParticles.gameObject.SetActive(true);
             victoryParticles.Play();
             Debug.Log("Victory particles playing");
         }
