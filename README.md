@@ -98,10 +98,10 @@
 ### 💾 **Download Options**
 
 <div align="center">
-
-[![Download for Windows](https://img.shields.io/badge/Download-Windows-0078D4?style=for-the-badge&logo=windows)](https://your-itch.io-link)
-[![Download for Mac](https://img.shields.io/badge/Download-macOS-000000?style=for-the-badge&logo=apple)](https://your-itch.io-link)
-[![Play Online](https://img.shields.io/badge/Play-Online-FF6B6B?style=for-the-badge&logo=itch.io)](https://your-itch.io-link)
+  
+[![Download for Windows](https://img.shields.io/badge/Download-Windows-0078D4?style=for-the-badge&logo=windows)](https://kusk24.itch.io/tankshooter3d)
+[![Download for macOS](https://img.shields.io/badge/Download-macOS-000000?style=for-the-badge&logo=apple)](https://kusk24.itch.io/tankshooter3d)
+[![Download for Linux](https://img.shields.io/badge/Download-Linux-1793D1?style=for-the-badge&logo=linux)](https://kusk24.itch.io/tankshooter3d)
 
 </div>
 
