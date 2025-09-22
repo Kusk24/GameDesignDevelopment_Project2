@@ -3,7 +3,7 @@
 # 🎮 Tank Retro Battle Arena 🚀
 ### *A nostalgic tribute to the classic Tank 1990*
 
-[![Unity](https://img.shields.io/badge/Unity-2022.3-blue?logo=unity)](https://unity.com/)
+[![Unity](https://img.shields.io/badge/Unity-6.0-blue?logo=unity)](https://unity.com/)
 [![C#](https://img.shields.io/badge/C%23-Programming-purple?logo=csharp)](https://docs.microsoft.com/en-us/dotnet/csharp/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Mac-lightgrey)](https://github.com/Kusk24/GameDesignDevelopment_Project2)
@@ -87,7 +87,7 @@
 | Developer | Student ID | Role |
 |-----------|------------|------|
 | **Win Yu Maung** | 6612054 | Lead Programmer & Game Designer |
-| **Sam Yati** | 6611982 | UI/UX Designer & Audio Engineer |
+| **Sam Yati** | 6611982 | Gameplay & Scirpting Programmer|
 
 </div>
 
@@ -120,7 +120,7 @@
 ## 🛠️ Technical Details
 
 ### 🔧 **Built With**
-- **Engine**: Unity 2022.3 LTS
+- **Engine**: Unity 6000.0.52f1 LTS
 - **Language**: C# (.NET Framework)
 - **Audio**: Unity Audio System with custom SFX
 - **Graphics**: 2D Sprites with particle effects
