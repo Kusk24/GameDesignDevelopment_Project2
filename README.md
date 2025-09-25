@@ -27,6 +27,21 @@
 
 ---
 
+## 👥 Development Team
+
+<div align="center">
+
+### 🐱 **Team Fat Cat** 🐱
+
+| Developer | Student ID | Role |
+|-----------|------------|------|
+| **Win Yu Maung** | 6612054 | Lead Programmer & Game Designer |
+| **Sam Yati** | 6611982 | Gameplay & Scirpting Programmer|
+
+</div>
+
+---
+
 ### 🎬 **Gameplay Preview**
 
 <div align="center">
@@ -103,21 +118,6 @@ https://kusk24.itch.io/tankshooter3d
 | 💎 **Diamond** | Protective Shield | 5 seconds | ![diamond](screenshots/diamond.png) |
 | 🔧 **Repair Tool** | +1 Extra Life | Permanent | ![repair](screenshots/repair.png) |
 | ✨ **Cross** | Teleport to Random Cross | Instant | ![cross](screenshots/cross.png) |
-
-</div>
-
----
-
-## 👥 Development Team
-
-<div align="center">
-
-### 🐱 **Team Fat Cat** 🐱
-
-| Developer | Student ID | Role |
-|-----------|------------|------|
-| **Win Yu Maung** | 6612054 | Lead Programmer & Game Designer |
-| **Sam Yati** | 6611982 | Gameplay & Scirpting Programmer|
 
 </div>
 
