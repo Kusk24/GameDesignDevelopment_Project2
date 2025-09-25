@@ -32,6 +32,7 @@
 <div align="center">
 
 [![Gameplay Video](https://img.shields.io/badge/▶️-Watch%20Gameplay%20Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/VDJwGFqeRgU)
+<br/>
 https://youtu.be/VDJwGFqeRgU
 
 *Click above to watch our exciting gameplay trailer!*
@@ -45,6 +46,7 @@ https://youtu.be/VDJwGFqeRgU
 <div align="center">
 
 [![Play on Itch.io](https://img.shields.io/badge/🎮-Play%20on%20Itch.io-FA5C5C?style=for-the-badge&logo=itchdotio)](https://kusk24.itch.io/tankshooter3d)
+<br/>
 https://kusk24.itch.io/tankshooter3d
 
 *Click above to download and try our game!*
