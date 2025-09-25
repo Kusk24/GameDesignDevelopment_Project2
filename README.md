@@ -27,6 +27,32 @@
 
 ---
 
+### 🎬 **Gameplay Preview**
+
+<div align="center">
+
+[![Gameplay Video](https://img.shields.io/badge/▶️-Watch%20Gameplay%20Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/VDJwGFqeRgU)
+https://youtu.be/VDJwGFqeRgU
+
+*Click above to watch our exciting gameplay trailer!*
+
+</div>
+
+---
+
+### 🎮 **Itch Io Link**
+
+<div align="center">
+
+[![Play on Itch.io](https://img.shields.io/badge/🎮-Play%20on%20Itch.io-FA5C5C?style=for-the-badge&logo=itchdotio)](https://kusk24.itch.io/tankshooter3d)
+https://kusk24.itch.io/tankshooter3d
+
+*Click above to download and try our game!*
+
+</div>
+
+---
+
 ## 📸 Game Screenshots
 
 <div align="center">
@@ -40,6 +66,8 @@
 ### ⚡ Level 2 - Wave Survival
 ![Level 2 Screenshot](screenshots/level2.png)
 
+### Colorful Victory Scene
+![Victory Screenshot](screenshots/colorful.png)
 </div>
 
 ---
@@ -102,16 +130,6 @@
 [![Download for Windows](https://img.shields.io/badge/Download-Windows-0078D4?style=for-the-badge&logo=windows)](https://kusk24.itch.io/tankshooter3d)
 [![Download for macOS](https://img.shields.io/badge/Download-macOS-000000?style=for-the-badge&logo=apple)](https://kusk24.itch.io/tankshooter3d)
 [![Download for Linux](https://img.shields.io/badge/Download-Linux-1793D1?style=for-the-badge&logo=linux)](https://kusk24.itch.io/tankshooter3d)
-
-</div>
-
-### 🎬 **Gameplay Preview**
-
-<div align="center">
-
-[![Gameplay Video](https://img.shields.io/badge/▶️-Watch%20Gameplay%20Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/VDJwGFqeRgU)
-
-*Click above to watch our exciting gameplay trailer!*
 
 </div>
 
